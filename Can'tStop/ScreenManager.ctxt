@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=ScreenManager
+comment1.params=window
+comment1.target=ScreenManager(javax.swing.JFrame)
+comment2.params=screenName
+comment2.target=void\ showScreen(java.lang.String)
+comment3.params=
+comment3.target=HomeScreen\ getHomeScreen()
+comment4.params=
+comment4.target=NewGameScreen\ getNewGameScreen()
+comment5.params=
+comment5.target=ChangeDisplayScreen\ getChangeDisplayScreen()
+comment6.params=
+comment6.target=void\ goBack()
+comment7.params=theme
+comment7.target=void\ setColor(ColorThemes)
+comment8.params=
+comment8.target=ColorThemes\ getColor()
+comment9.params=panel
+comment9.target=void\ setScreen(javax.swing.JPanel)
+numComments=10

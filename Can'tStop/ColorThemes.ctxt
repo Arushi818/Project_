@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=ColorThemes
+comment1.params=name\ backgroundColor1\ backgroundColor2\ buttonColor
+comment1.target=ColorThemes(java.lang.String,\ java.awt.Color,\ java.awt.Color,\ java.awt.Color)
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment3.params=
+comment3.target=java.awt.Color\ getBackgroundColor1()
+comment4.params=
+comment4.target=java.awt.Color\ getBackgroundColor2()
+comment5.params=
+comment5.target=java.awt.Color\ getButtonColor()
+comment6.params=width\ height
+comment6.target=java.awt.GradientPaint\ getGradientBackground(int,\ int)
+comment7.params=
+comment7.target=javax.swing.JPanel\ createGradientPanel()
+comment8.params=g
+comment8.target=void\ paintComponent(java.awt.Graphics)
+numComments=9

@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=Board
+comment1.params=
+comment1.target=Board()
+comment2.params=g
+comment2.target=void\ paintComponent(java.awt.Graphics)
+comment3.params=
+comment3.target=void\ createColumns()
+comment4.params=
+comment4.target=void\ innerColumns()
+comment5.params=
+comment5.target=void\ createPlayerColumns()
+comment6.params=columnIndex\ panelIndex\ playerIndex\ color
+comment6.target=void\ setPlayerColumnColor(int,\ int,\ int,\ java.awt.Color)
+comment7.params=columnIndex\ color
+comment7.target=void\ setColumnPlayerPanelsColor(int,\ java.awt.Color)
+comment8.params=columnIndex\ playerIndex\ innerPanelStart\ innerPanelEnd\ color
+comment8.target=void\ setPlayerPanelsColorInRange(int,\ int,\ int,\ int,\ java.awt.Color)
+numComments=9

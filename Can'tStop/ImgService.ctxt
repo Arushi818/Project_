@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=ImgService
+comment1.params=filePath
+comment1.target=javax.swing.JLabel\ loadImage(java.lang.String)
+comment2.params=imageContainer\ filePath
+comment2.target=void\ updateImage(javax.swing.JLabel,\ java.lang.String)
+numComments=3
