@@ -21,7 +21,7 @@ print("Actual:  ", encryption.binToChar([1,0,1,1,1,0]))
 print("\n3. Testing strToBin()")
 print("Input:    Camera")
 print("Expected: 0 0 0 0 1 0 0 1 1 0 1 0 1 0 0 1 1 0 0 1 1 1 1 0 1 0 1 0 1 1 0 1 1 0 1 0")
-print("Actual:  ", *encryption.strToBin("camera"))
+print("Actual:  ", *encryption.strToBin("Camera"))
 
 # test 4: binToStr
 print("\n4. Testing binToStr()")
@@ -41,11 +41,6 @@ print("Actual:  ", *pad)
 # test 6: encrypt()
 print("\n6. Testing encrypt()")
 plain = "IdLoveToStayHereAndBeNormalButItsJustSoOverrated"
-encrypted = encryption.encrypt(plain, [1,0,1,0,0,1,0,0,1,0], 8)
-decrypted = encryption.encrypt(encrypted, [1,0,1,0,0,1,0,0,1,0], 8)
-
-print("\n7. Testing encrypt()")
-plain = "leprintemps_08"
 encrypted = encryption.encrypt(plain, [1,0,1,0,0,1,0,0,1,0], 8)
 decrypted = encryption.encrypt(encrypted, [1,0,1,0,0,1,0,0,1,0], 8)
 

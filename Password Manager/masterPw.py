@@ -1,59 +1,48 @@
-import configparser
-import os 
-import bcrypt
+import pymongo
 
-b = 0
-def createmaster():
-    # User sets the master password
-    master_password = input("Enter your master password: ")
-    hashed_master = bcrypt.hashpw(master_password.encode('utf-8'), bcrypt.gensalt())
+def createCollection(data = ""):
+   client = pymongo.MongoClient("localhost", 27017)
+   db = client["MasterPassword"]
+   mycol = db["MasterPassword"]
+   if len(data) > 0:
+       addRecord(mycol,data)
+   return mycol
 
-
-    # Create a configuration object
-    config = configparser.ConfigParser()
-
-    # Set the master password in the configuration file
-    config['Security'] = {
-        'master_password': hashed_master
-    }
-
-    # Write the configuration data to the config.ini file
-    with open('config.ini', 'w') as configfile:
-         config.write(configfile)
-
-    print("Master password set and stored securely.")
-
- 
-def checkmaster():    
-    # Prompt user for master password
-    entered_password = input("Enter your master password to access passwords: ")
-    hash_entered = hash(entered_password)
-    print(hash_entered)
-
-    # Read master password from the configuration file
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-
-    stored_master_password = config['Security']['master_password']
-
-
-    # Compare entered password with stored password
-    if bcrypt.checkpw(entered_password.encode('utf-8'), stored_master_password):
-        #print("Access granted. Here are your decrypted passwords:")
-        # Implement code to decrypt and display passwords from the user passwords file
-        b = 1
+def addRecord(collection, data):
+    if collection.count_documents({}) == 0:
+        collection.insert_one({"id": 1, "masterPassword": data})
     else:
-        b = 0
-        #print("Incorrect master password. Access denied.")
-    return b
+        # Update the existing record
+        query = {"id": 1}
+        newvalues = {"$set": {"masterPassword": data}}
+        collection.update_one(query, newvalues)
+    return
 
-
-def ismasterfileEmpty():
-    config_file_path = 'config.ini'
-    # Get the size of the config file
-    file_size = os.path.getsize(config_file_path)
-    if file_size == 0:
-        return True
+def checkIfMPExists(collection):
+    if len(list(collection.find())) > 0:
+       return True
     else:
-        return False 
- 
+       return False
+
+def updateMasterPassword(collection,newPassword):
+   query = { "id": 1}
+   newvalues = { "$set": { "masterPassword": newPassword } }
+
+   collection.update_one(query, newvalues)
+
+def retrieveMasterPassword(collection):
+   result = collection.find_one()
+   password = result["masterPassword"]
+   return password
+
+def main():
+   collection = createCollection()
+   addRecord(collection,"Markey2000")
+   addRecord(collection,"Markey4")
+   print(retrieveMasterPassword(collection))
+
+   
+if __name__ == '__main__':
+   main()
+
+
